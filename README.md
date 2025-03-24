@@ -2,7 +2,7 @@
 
 ## Steps to Create a Root Certificate, CSR, and Sign the CSR
 <details>
-<summary>**1. Create a Root Certificate (Root CA)**</summary>
+<summary> **1. Create a Root Certificate (Root CA)** </summary>
 
 ```sh
 openssl genpkey -algorithm RSA -out rootCA.key
