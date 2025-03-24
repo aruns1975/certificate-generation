@@ -59,7 +59,9 @@ openssl verify -CAfile rootCA.crt server.crt
 </details>
 
 ## Multi-tier Security Architecture
-```
+<details>
+  <summary>Certificate Heirarchy</summary>
+  ```
 Root CA (Offline)  
   │  
   ├── Intermediate CA 1 (Online)  
@@ -71,3 +73,6 @@ Root CA (Offline)
   │      ├── IoT Device Certificates  
   │      ├── VPN Certificates  
   │      └── Email Signing Certificates  
+  ```
+</details>
+
