@@ -58,6 +58,40 @@ openssl verify -CAfile rootCA.crt server.crt
 
 </details>
 
+## Steps to Create a Root Certificate, CSR, Intermediate Certicate and Sign the CSR
+<details>
+  <summary>1. Create an Intermediate CA</summary>
+
+```sh
+openssl genpkey -algorithm RSA -out intermediateCA.key
+openssl req -new -key intermediateCA.key -out intermediateCA.csr -subj "/C=US/ST=State/L=City/O=MyOrg/OU=IT/CN=MyIntermediateCA"
+openssl x509 -req -in intermediateCA.csr -CA rootCA.crt -CAkey rootCA.key -CAcreateserial -out intermediateCA.crt -days 1825 -sha256
+
+```
+</details>
+
+<details>
+  <summary>1. Use the Intermediate CA to Sign End-Entity Certificates</summary>
+
+```sh
+openssl x509 -req -in server.csr -CA intermediateCA.crt -CAkey intermediateCA.key -CAcreateserial -out server.crt -days 365 -sha256
+```
+</details>
+
+<details>
+  <summary>Distribute the Certificate Chain</summary>
+
+  Provide:
+  * server.crt (End-entity certificate)
+  * intermediateCA.crt (Intermediate CA certificate)
+  * rootCA.crt (Root CA certificate)
+
+**bundle the certificates:
+```sh
+cat server.crt intermediateCA.crt > server_chain.pem
+```
+</details>
+
 ## Multi-tier Security Architecture
 <details>
   <summary>Certificate Heirarchy</summary>
