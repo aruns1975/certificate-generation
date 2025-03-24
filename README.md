@@ -13,6 +13,7 @@ openssl req -x509 -new -key rootCA.key -sha256 -days 3650 -out rootCA.crt -subj 
 * **rootCA.crt**: Self-signed root CA certificate.
 * **-days 3650**: Valid for 10 years.
 </details>
+
 **2. Generate a Certificate Signing Request (CSR) for an End Entity**
 ```sh
 openssl genpkey -algorithm RSA -out server.key
