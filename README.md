@@ -3,7 +3,6 @@
 ## Steps to Create a Root Certificate, CSR, and Sign the CSR
 <details>
 <summary> 
- 
 **1. Create a Root Certificate (Root CA)** 
 </summary>
 
@@ -19,8 +18,7 @@ openssl req -x509 -new -key rootCA.key -sha256 -days 3650 -out rootCA.crt -subj 
 
 <details>
 <summary>
- 
-**2. Generate a Certificate Signing Request (CSR) for an End Entity**
+ **2. Generate a Certificate Signing Request (CSR) for an End Entity**
 </summary>
   
 ```sh
