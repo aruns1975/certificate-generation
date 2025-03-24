@@ -61,6 +61,8 @@ openssl verify -CAfile rootCA.crt server.crt
 ## Multi-tier Security Architecture
 <details>
   <summary>Certificate Heirarchy</summary>
+ 
+  
   ```
 Root CA (Offline)  
   │  
