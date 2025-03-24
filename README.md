@@ -3,8 +3,7 @@
 ## Steps to Create a Root Certificate, CSR, and Sign the CSR
 <details>
 <summary> 
- 
-**1. Create a Root Certificate (Root CA)** 
+ **1. Create a Root Certificate (Root CA)** 
 </summary>
 
 ```sh
