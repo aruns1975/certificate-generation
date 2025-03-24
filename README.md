@@ -47,7 +47,7 @@ openssl x509 -req -in server.csr -CA rootCA.crt -CAkey rootCA.key -CAcreateseria
 ### What Needs to Be Distributed?
 <details>
 <summary>
-
+ 
  #### To the Client or Users:
 </summary>
 * **server.crt** (Signed certificate)
