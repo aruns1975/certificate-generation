@@ -13,8 +13,8 @@ openssl req -x509 -new -key rootCA.key -sha256 -days 3650 -out rootCA.crt -subj 
 * **rootCA.crt**: Self-signed root CA certificate.
 * **-days 3650**: Valid for 10 years.
 </details>
-
-**2. Generate a Certificate Signing Request (CSR) for an End Entity**
+<details>
+<summary>**2. Generate a Certificate Signing Request (CSR) for an End Entity**</summary>
 ```sh
 openssl genpkey -algorithm RSA -out server.key
 openssl req -new -key server.key -out server.csr -subj "/C=US/ST=State/L=City/O=MyOrg/OU=IT/CN=myserver.com"
@@ -22,15 +22,16 @@ openssl req -new -key server.key -out server.csr -subj "/C=US/ST=State/L=City/O=
 
 * **server.key**: Private key for the server.
 * **server.csr**: CSR file to be signed.
-
-**3. . Sign the CSR Using the Root CA**
+</details>
+<details>
+<summary>**3. . Sign the CSR Using the Root CA**</summary>
 ```sh
 openssl x509 -req -in server.csr -CA rootCA.crt -CAkey rootCA.key -CAcreateserial -out server.crt -days 365 -sha256
 ```
 
 * **server.crt**: The signed certificate.
 * **-CAcreateserial**: Generates a rootCA.srl file to track serial numbers.
-
+</details>
 ### What Needs to Be Distributed?
 #### To the Client or Users:
 
