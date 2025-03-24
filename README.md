@@ -1,6 +1,6 @@
 # certificate-generation
 
-1. Create a Root Certificate (Root CA)
+**1. Create a Root Certificate (Root CA)**
 
 ```sh
 openssl genpkey -algorithm RSA -out rootCA.key
