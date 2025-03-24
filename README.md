@@ -16,6 +16,7 @@ openssl req -x509 -new -key rootCA.key -sha256 -days 3650 -out rootCA.crt -subj 
 * **rootCA.crt**: Self-signed root CA certificate.
 * **-days 3650**: Valid for 10 years.
 </details>
+
 <details>
 <summary>
  
@@ -50,6 +51,7 @@ openssl x509 -req -in server.csr -CA rootCA.crt -CAkey rootCA.key -CAcreateseria
  
  #### To the Client or Users:
 </summary>
+
 * **server.crt** (Signed certificate)
 * **rootCA.crt** (CA certificate for verification)
 * Any intermediate certificates (if applicable)
