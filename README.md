@@ -4,7 +4,7 @@
 <details>
 <summary> 
  
- * **1. Create a Root Certificate (Root CA)** 
+**1. Create a Root Certificate (Root CA)** 
 </summary>
 
 ```sh
@@ -19,7 +19,7 @@ openssl req -x509 -new -key rootCA.key -sha256 -days 3650 -out rootCA.crt -subj 
 <details>
 <summary>
  
-* **2. Generate a Certificate Signing Request (CSR) for an End Entity**
+ **2. Generate a Certificate Signing Request (CSR) for an End Entity**
 </summary>
   
 ```sh
@@ -33,7 +33,7 @@ openssl req -new -key server.key -out server.csr -subj "/C=US/ST=State/L=City/O=
 <details>
 <summary>
  
-* **3. . Sign the CSR Using the Root CA**
+**3. . Sign the CSR Using the Root CA**
 </summary>
   
 ```sh
