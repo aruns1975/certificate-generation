@@ -1,8 +1,8 @@
 # certificate-generation
 
 ## Steps to Create a Root Certificate, CSR, and Sign the CSR
-
-**1. Create a Root Certificate (Root CA)**
+<details>
+<summary>**1. Create a Root Certificate (Root CA)**</details></summary>
 
 ```sh
 openssl genpkey -algorithm RSA -out rootCA.key
@@ -12,7 +12,7 @@ openssl req -x509 -new -key rootCA.key -sha256 -days 3650 -out rootCA.crt -subj 
 * **rootCA.key**: Private key for the root CA.
 * **rootCA.crt**: Self-signed root CA certificate.
 * **-days 3650**: Valid for 10 years.
-
+</details>
 **2. Generate a Certificate Signing Request (CSR) for an End Entity**
 ```sh
 openssl genpkey -algorithm RSA -out server.key
