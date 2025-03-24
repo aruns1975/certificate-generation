@@ -49,7 +49,7 @@ openssl x509 -req -in server.csr -CA rootCA.crt -CAkey rootCA.key -CAcreateseria
 <details>
 <summary>
  
- #### To the Client or Users:
+* **To the Client or Users:**
 </summary>
 
 * **server.crt** (Signed certificate)
@@ -59,16 +59,22 @@ openssl x509 -req -in server.csr -CA rootCA.crt -CAkey rootCA.key -CAcreateseria
 <details>
  <summary>
   
-#### To the Server:
+* **To the Server:**
 </summary>
 * **server.crt** (Signed certificate)
 * **server.key** (Private key, keep it secure)
 * **rootCA.crt** (Optional, for mutual TLS)
 </details>
+<details>
+<summary>
+ 
 ### Verifying the Certificate
+</summary>
 ```sh
 openssl verify -CAfile rootCA.crt server.crt
 ```
+
+</details>
 
 ## Multi-tier Security Architecture
 ```
