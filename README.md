@@ -45,7 +45,7 @@ openssl x509 -req -in server.csr -CA rootCA.crt -CAkey rootCA.key -CAcreateseria
 * Any intermediate certificates (if applicable)
 </details>
 <details>
- <summary>To the Server:**</summary>
+ <summary>To the Server:</summary>
   
 * **server.crt** (Signed certificate)
 * **server.key** (Private key, keep it secure)
