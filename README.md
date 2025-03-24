@@ -1,5 +1,7 @@
 # certificate-generation
 
+## Steps to Create a Root Certificate, CSR, and Sign the CSR
+
 **1. Create a Root Certificate (Root CA)**
 
 ```sh
@@ -19,3 +21,29 @@ openssl req -new -key server.key -out server.csr -subj "/C=US/ST=State/L=City/O=
 
 * **server.key**: Private key for the server.
 * **server.csr**: CSR file to be signed.
+
+**3. . Sign the CSR Using the Root CA**
+```sh
+openssl x509 -req -in server.csr -CA rootCA.crt -CAkey rootCA.key -CAcreateserial -out server.crt -days 365 -sha256
+```
+
+* **server.crt**: The signed certificate.
+* **-CAcreateserial**: Generates a rootCA.srl file to track serial numbers.
+
+### What Needs to Be Distributed?
+#### To the Client or Users:
+
+* **server.crt** (Signed certificate)
+* **rootCA.crt** (CA certificate for verification)
+* Any intermediate certificates (if applicable)
+
+#### To the Server:
+
+* **server.crt** (Signed certificate)
+* **server.key** (Private key, keep it secure)
+* **rootCA.crt** (Optional, for mutual TLS)
+
+### Verifying the Certificate
+```sh
+openssl verify -CAfile rootCA.crt server.crt
+```
