@@ -45,18 +45,24 @@ openssl x509 -req -in server.csr -CA rootCA.crt -CAkey rootCA.key -CAcreateseria
 </details>
 
 ### What Needs to Be Distributed?
-#### To the Client or Users:
+<details>
+<summary>
 
+ #### To the Client or Users:
+</summary>
 * **server.crt** (Signed certificate)
 * **rootCA.crt** (CA certificate for verification)
 * Any intermediate certificates (if applicable)
-
+</details>
+<details>
+ <summary>
+  
 #### To the Server:
-
+</summary>
 * **server.crt** (Signed certificate)
 * **server.key** (Private key, keep it secure)
 * **rootCA.crt** (Optional, for mutual TLS)
-
+</details>
 ### Verifying the Certificate
 ```sh
 openssl verify -CAfile rootCA.crt server.crt
