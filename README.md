@@ -47,3 +47,17 @@ openssl x509 -req -in server.csr -CA rootCA.crt -CAkey rootCA.key -CAcreateseria
 ```sh
 openssl verify -CAfile rootCA.crt server.crt
 ```
+
+## Multi-tier Security Architecture
+```
+Root CA (Offline)  
+  │  
+  ├── Intermediate CA 1 (Online)  
+  │      ├── Web Server Certificates  
+  │      ├── API Server Certificates  
+  │      └── Client Certificates  
+  │  
+  ├── Intermediate CA 2 (Online)  
+  │      ├── IoT Device Certificates  
+  │      ├── VPN Certificates  
+  │      └── Email Signing Certificates  
